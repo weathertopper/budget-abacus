@@ -9,6 +9,162 @@
     <script src='home.js'></script>
 </head>
 <body>
-    <h1>Hello World!</h1>
+    <div id='step-one'>
+        <h1>Step One</h1>
+        <input type='file' id='csv-upload'>
+    </div>
+    <div id='step-two'>
+        <h1>Step Two</h1>
+        <div class='table-container'>
+            <div class='table-div'>
+                <table>
+                    <tr class='table-header-row'>
+                        <th>
+                            Catagory
+                        </th>
+                        <th>
+                            Expected Cost
+                        </th>
+                    </tr>
+                    <!-- pre-populate with values from default.json -->
+                    <!-- add the following row dynamically -->
+                    <tr class='table-data-row'>
+                        <td>
+                            <input type='text' class='catagory' value=''>
+                        </td>
+                        <td>
+                            <input type='text' class='expected-cost' value=''>
+                        </td>
+                    </tr>
+                    <tr class='table-add-row'>
+                        <td colspan='2'>
+                            <button type='button' id='step-two-add-row' class='add-row'>Add Row</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <button type='button' id='step-two-update' class='update-button'>Update</button>
+    </div>
+    <div id='step-three'>
+        <h1>Step Three</h1>
+        <div class='table-container'>
+            <div class='table-div'>
+                <table>
+                    <tr class='table-header-row'>
+                        <th>
+                            Transaction Host
+                        </th>
+                        <th>
+                            Catagory
+                        </th>
+                    </tr>
+                    <!-- add the following row dynamically -->
+                    <tr class='table-data-row'>
+                        <td>
+                            <input type='text' class='transaction-host' value=''>
+                        </td>
+                        <td>
+                            <select class='catalog-dropdown'>
+                                <!-- populate this dropdown with values from step 2 -->
+                                <option>Select a Catagory</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr class='table-add-row'>
+                        <td colspan='2'>
+                            <button type='button' id='step-three-add-row' class='add-row'>Add Row</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <button type='button' id='step-three-update' class='update-button'>Update</button>
+    </div>
+    <div id='step-four'>
+        <h1>Step Four</h1>
+        <div class='table-container'>
+            <div class='table-div'>
+                <table>
+                    <tr class='table-header-row'>
+                        <th>
+                            Transaction Host
+                        </th>
+                        <th>
+                            Catagory
+                        </th>
+                    </tr>
+                    <!-- add the following row dynamically -->
+                    <tr class='table-data-row'>
+                        <td>
+                            transaction-host-here
+                        </td>
+                        <td>
+                            <select class='catalog-dropdown'>
+                                <!-- populate this dropdown with values from step 3 -->
+                                <option>Select a Catagory</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <button type='button' id='step-four-update' class='update-button'>Update</button>
+    </div>
+    <div id='step-five'>
+            <h1>Step Five</h1>
+            <!-- add the following table dynamically only after all previous steps completed-->
+            <div class='table-div'>
+                <table>
+                    <tr class='table-header-row'>
+                        <th colspan='2'>
+                            date-start to date-end
+                        </th>
+                    </tr>
+                    <tr class='table-data-row'>
+                        <td>
+                            Start Balance
+                        </td>
+                        <td id='start-balance-td'>
+                           dollar-amount-here 
+                        </td>
+                    </tr>
+                    <tr class='table-data-row'>
+                        <td>
+                            End Balance
+                        </td>
+                        <td id='end-balance-td'>
+                            dollar-amount-here 
+                        </td>
+                    </tr>
+                    <tr class='table-data-row'>
+                        <td>
+                            Expected Cost
+                        </td>
+                        <td id='expected-cost-td'>
+                            dollar-amount-here 
+                        </td>
+                    </tr>
+                    <tr class='table-data-row'>
+                        <td>
+                            Actual Cost
+                        </td>
+                        <td id='actual-cost-td'>
+                            dollar-amount-here 
+                        </td>
+                    </tr>
+                    <tr class='table-data-row'>
+                        <td>
+                            Delta
+                        </td>
+                        <td id='delta-td'>
+                            dollar-amount-here 
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <button type='button' id='step-five-download' class='download-button'>Download</button>
+        </div>
+    
 </body>
 </html>
