@@ -1,0 +1,21 @@
+{
+  "name": "piggy-banker",
+  "version": "1.0.0",
+  "main": "home.html",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/weathertopper/budget-abacus.git"
+  },
+  "author": "weathertopper",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/weathertopper/budget-abacus/issues"
+  },
+  "homepage": "https://github.com/weathertopper/budget-abacus#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
