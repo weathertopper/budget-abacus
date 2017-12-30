@@ -1,0 +1,56 @@
+body {
+    background-color: ghostwhite;
+    color: #333;
+    padding-bottom: 5%; /* just to scroll past Download button*/
+}
+
+.container {
+    width: 75%;
+}
+
+h1, h2 {
+    font-family: 'Ubuntu Mono', monospace;
+    font-weight: bold;
+}
+
+.jumbotron {
+    background-color: lightpink;
+}
+
+.jumbotron small {
+    color: inherit;
+}
+
+.table-div table {
+    width: 70%;
+    margin: auto;
+}
+
+.csv-button, .update-button, .run-button, .download-button {
+    background-color: floralwhite;
+    margin-left: 3%;
+}
+
+input, select, .add-row {
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 2px dashed #ddd;
+    font-weight: bold;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.dollar-sign, .cents, .btn {
+    font-weight: bold
+}
+
+select {
+    padding-top: 4px;
+}
+
+.table-add-row {
+    text-align: center;
+}

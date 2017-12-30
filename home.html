@@ -1,23 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Budget Abacus</title>
+    <title>Piggy Banker</title>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono" rel="stylesheet">
+    <link rel='stylesheet' href='./bootstrap-3.3.7-dist/css/bootstrap.css'>
     <link rel='stylesheet' href='home.css'>
     <script src='./jquery-3.2.1.min.js'></script>
     <script src='default.json'></script>
     <script src='table_manipulation.js'></script>
     <script src='home.js'></script>
 </head>
-<body>
+<body class = 'container'>
+    <div class='jumbotron'>
+        <h1><span class='glyphicon glyphicon-piggy-bank'></span> piggy banker <small>count every coin</small></h1>
+    </div>
     <div id='step-one'>
-        <h1>Step One</h1>
-        <input type='file' id='csv-upload'>
+        <div class='page-header'>
+            <h2>Step One <small>select a csv file</small></h2>
+        </div>
+        <label for='csv-input' class='csv-button btn btn-default'>Select CSV <span class='glyphicon glyphicon-file'></label>
+        <input name='csv-input' type='file' id='csv-input'>
     </div>
     <div id='step-two'>
-        <h1>Step Two</h1>
+        <div class='page-header'>
+            <h2>Step Two <small>specify budget catagories and expected costs</small></h2>
+        </div>
         <div class='table-container'>
             <div class='table-div'>
-                <table>
+                <table class='table table-hover'>
                     <tr class='table-header-row'>
                         <th>
                             Catagory
@@ -25,32 +35,41 @@
                         <th>
                             Expected Cost
                         </th>
+                        <th>
+                        </th>
                     </tr>
                     <!-- pre-populate with values from default.json -->
-                    <!-- add the following row dynamically -->
+                    <!-- add the following row dynamically, with specific IDs for remove buttons -->
                     <tr class='table-data-row'>
                         <td>
                             <input type='text' class='catagory' value=''>
                         </td>
                         <td>
+                            <span class = 'dollar-sign'>$</span>
                             <input type='text' class='expected-cost' value=''>
+                            <span class = 'cents'><sup>.00</sup></span>
+                        </td>
+                        <td>
+                            <button type="button" id='step-four-remove-row' class='close'><span class='glyphicon glyphicon-remove-sign'></button>
                         </td>
                     </tr>
                     <tr class='table-add-row'>
-                        <td colspan='2'>
-                            <button type='button' id='step-two-add-row' class='add-row'>Add Row</button>
+                        <td colspan='3'>
+                            <button type='button' id='step-two-add-row' class='add-row btn btn-default btn-sm'>Add Row <span class='glyphicon glyphicon-plus-sign'></button>
                         </td>
                     </tr>
                 </table>
             </div>
         </div>
-        <button type='button' id='step-two-update' class='update-button'>Update</button>
+        <button type='button' id='step-two-update' class='update-button btn btn-default'>Update  <span class='glyphicon glyphicon-circle-arrow-up'></button>
     </div>
     <div id='step-three'>
-        <h1>Step Three</h1>
+        <div class='page-header'>
+            <h2>Step Three <small>add, update, or remove known transaction hosts</small></h2>
+        </div>
         <div class='table-container'>
             <div class='table-div'>
-                <table>
+                <table class='table table-hover'>
                     <tr class='table-header-row'>
                         <th>
                             Transaction Host
@@ -58,34 +77,41 @@
                         <th>
                             Catagory
                         </th>
+                        <th>
+                        </th>
                     </tr>
-                    <!-- add the following row dynamically -->
+                    <!-- add the following row dynamically, with specific remove ID -->
                     <tr class='table-data-row'>
                         <td>
                             <input type='text' class='transaction-host' value=''>
                         </td>
                         <td>
-                            <select class='catalog-dropdown'>
+                            <select class='catagory-dropdown' >
                                 <!-- populate this dropdown with values from step 2 -->
                                 <option>Select a Catagory</option>
                             </select>
                         </td>
+                        <td>
+                            <button type="button" id='step-three-remove-row' class="close "><span class='glyphicon glyphicon-remove-sign'></button>
+                        </td>
                     </tr>
                     <tr class='table-add-row'>
-                        <td colspan='2'>
-                            <button type='button' id='step-three-add-row' class='add-row'>Add Row</button>
+                        <td colspan='3'>
+                            <button type='button' id='step-three-add-row' class='add-row btn btn-default btn-sm'>Add Row <span class='glyphicon glyphicon-plus-sign'></button>
                         </td>
                     </tr>
                 </table>
             </div>
         </div>
-        <button type='button' id='step-three-update' class='update-button'>Update</button>
+        <button type='button' id='step-three-update' class='update-button btn btn-default'>Update <span class='glyphicon glyphicon-circle-arrow-up'></button>
     </div>
     <div id='step-four'>
-        <h1>Step Four</h1>
+        <div class='page-header'>
+            <h2>Step Four <small>catagorize unknown transaction hosts</small></h2>
+        </div>
         <div class='table-container'>
             <div class='table-div'>
-                <table>
+                <table class='table table-hover'>
                     <tr class='table-header-row'>
                         <th>
                             Transaction Host
@@ -109,62 +135,63 @@
                 </table>
             </div>
         </div>
-        <button type='button' id='step-four-update' class='update-button'>Update</button>
+        <button type='button' id='step-four-run' class='run-button btn btn-default'>Run <span class='glyphicon glyphicon-ok-sign'></button>
     </div>
     <div id='step-five'>
-            <h1>Step Five</h1>
-            <!-- add the following table dynamically only after all previous steps completed-->
-            <div class='table-div'>
-                <table>
-                    <tr class='table-header-row'>
-                        <th colspan='2'>
-                            date-start to date-end
-                        </th>
-                    </tr>
-                    <tr class='table-data-row'>
-                        <td>
-                            Start Balance
-                        </td>
-                        <td id='start-balance-td'>
-                           dollar-amount-here 
-                        </td>
-                    </tr>
-                    <tr class='table-data-row'>
-                        <td>
-                            End Balance
-                        </td>
-                        <td id='end-balance-td'>
-                            dollar-amount-here 
-                        </td>
-                    </tr>
-                    <tr class='table-data-row'>
-                        <td>
-                            Expected Cost
-                        </td>
-                        <td id='expected-cost-td'>
-                            dollar-amount-here 
-                        </td>
-                    </tr>
-                    <tr class='table-data-row'>
-                        <td>
-                            Actual Cost
-                        </td>
-                        <td id='actual-cost-td'>
-                            dollar-amount-here 
-                        </td>
-                    </tr>
-                    <tr class='table-data-row'>
-                        <td>
-                            Delta
-                        </td>
-                        <td id='delta-td'>
-                            dollar-amount-here 
-                        </td>
-                    </tr>
-                </table>
-            </div>
-            <button type='button' id='step-five-download' class='download-button'>Download</button>
+        <div class='page-header'>
+            <h2>Step Five <small>review and download budgeting diagnostics</small></h2>
         </div>
-    
+        <!-- add the following table dynamically only after all previous steps completed-->
+        <div class='table-div'>
+            <table class='table table-hover'>
+                <tr class='table-header-row'>
+                    <th colspan='2'>
+                        date-start to date-end
+                    </th>
+                </tr>
+                <tr class='table-data-row'>
+                    <td>
+                        Start Balance
+                    </td>
+                    <td id='start-balance-td'>
+                        dollar-amount-here 
+                    </td>
+                </tr>
+                <tr class='table-data-row'>
+                    <td>
+                        End Balance
+                    </td>
+                    <td id='end-balance-td'>
+                        dollar-amount-here 
+                    </td>
+                </tr>
+                <tr class='table-data-row'>
+                    <td>
+                        Expected Cost
+                    </td>
+                    <td id='expected-cost-td'>
+                        dollar-amount-here 
+                    </td>
+                </tr>
+                <tr class='table-data-row'>
+                    <td>
+                        Actual Cost
+                    </td>
+                    <td id='actual-cost-td'>
+                        dollar-amount-here 
+                    </td>
+                </tr>
+                <tr class='table-data-row'>
+                    <td>
+                        Delta
+                    </td>
+                    <td id='delta-td'>
+                        dollar-amount-here 
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <button type='button' id='step-five-download' class='download-button btn btn-default'>Download  <span class='glyphicon glyphicon-circle-arrow-down'></button>
+    </div>    
 </body>
 </html>
