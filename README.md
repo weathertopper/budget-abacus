@@ -19,6 +19,7 @@ Any default values used to populate tables will be saved in JSON format inside o
 ## Example CSV
 
 Rough format (I'm not going to post an actual example)
+
 | `Date`         | `Transaction Type`                                 | `Check Number`                                | `Description`      | `Amount`                              | `Daily Posted Balance`                           |
 |--------------|--------------------------------------------------|---------------------------------------------|------------------|-------------------------------------|------------------------------------------------|
 | `mm/dd/yyyy` | `POS` or `Debit` or `Credit` or `Check` or `Deposit` | only for Transaction Type `Check`, _(ignore)_ | Transaction Host | Debit : `($#.##)`, Credit : `$#.##` | only for last transaction of the day, `$#.##` |
