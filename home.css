@@ -33,6 +33,7 @@ h1, h2 {
 .table-div{
     max-height: 350px;
     overflow: auto;
+    margin-bottom: 30px;
 }
 
 tr td:nth-child(1), tr th:nth-child(1) {
