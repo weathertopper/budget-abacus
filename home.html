@@ -7,6 +7,7 @@
     <link rel='stylesheet' href='home.css'>
     <script src='./jquery-3.2.1.min.js'></script>
     <script src='default.json'></script>
+    <script src='globals.js'></script>
     <script src='table_manipulation.js'></script>
     <script src='home.js'></script>
 </head>
@@ -18,6 +19,7 @@
         <div class='page-header'>
             <h2>Step One <small>select a csv file</small></h2>
         </div>
+        <div class='error-div alert alert-danger' role='alert'></div>
         <label for='csv-input' class='csv-button btn btn-default'>Select CSV <span class='glyphicon glyphicon-file'></label>
         <input name='csv-input' type='file' id='csv-input'>
     </div>
@@ -25,61 +27,63 @@
         <div class='page-header'>
             <h2>Step Two <small>specify budget catagories and expected costs</small></h2>
         </div>
-            <div class='table-header-div'>
-                <table class='table'>
-                    <tr class='table-header-row'>
-                        <th>
-                            Catagory
-                        </th>
-                        <th>
-                            Expected Cost
-                        </th>
-                        <th>
-                        </th>
-                    </tr>
-                </table>
-            </div>
-            <div class='table-div'>
-                <table class='table table-hover'>
-                    <!-- pre-populate with values from default.json -->
-                    <!-- add rows dynamically, with specific IDs for remove buttons -->
-                    <tr class='table-add-row'>
-                        <td colspan='3'>
-                            <button type='button' id='step-two-add-row' class='add-row btn btn-default btn-sm'  onclick='addRow("two")'>Add Row <span class='glyphicon glyphicon-plus-sign'></button>
-                        </td>
-                    </tr>
-                </table>
-            </div>
+        <div class='table-header-div'>
+            <table class='table'>
+                <tr class='table-header-row'>
+                    <th>
+                        Catagory
+                    </th>
+                    <th>
+                        Expected Cost
+                    </th>
+                    <th>
+                    </th>
+                </tr>
+            </table>
+        </div>
+        <div class='table-div'>
+            <table class='table table-hover'>
+                <!-- pre-populate with values from default.json -->
+                <!-- add rows dynamically, with specific IDs for remove buttons -->
+                <tr class='table-add-row'>
+                    <td colspan='3'>
+                        <button type='button' id='step-two-add-row' class='add-row btn btn-default btn-sm'  onclick='addRow("two")'>Add Row <span class='glyphicon glyphicon-plus-sign'></button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class='error-div alert alert-danger' role='alert'></div>
         <button type='button' id='step-two-update' class='update-button btn btn-default'>Update  <span class='glyphicon glyphicon-circle-arrow-up'></button>
     </div>
     <div id='step-three'>
         <div class='page-header'>
             <h2>Step Three <small>add, update, or remove known transaction hosts</small></h2>
         </div>
-            <div class='table-header-div'>
-                <table class='table'>
-                    <tr class='table-header-row'>
-                        <th>
-                            Transaction Host
-                        </th>
-                        <th>
-                            Catagory
-                        </th>
-                        <th>
-                        </th>
-                    </tr>
-                </table>
-            </div>
-            <div class='table-div'>
-                <table class='table table-hover'>
-                    <!-- add rows dynamically, with specific remove ID -->
-                    <tr class='table-add-row'>
-                        <td colspan='3'>
-                            <button type='button' id='step-three-add-row' class='add-row btn btn-default btn-sm' onclick='addRow("three")'>Add Row <span class='glyphicon glyphicon-plus-sign'></button>
-                        </td>
-                    </tr>
-                </table>
-            </div>
+        <div class='table-header-div'>
+            <table class='table'>
+                <tr class='table-header-row'>
+                    <th>
+                        Transaction Host
+                    </th>
+                    <th>
+                        Catagory
+                    </th>
+                    <th>
+                    </th>
+                </tr>
+            </table>
+        </div>
+        <div class='table-div'>
+            <table class='table table-hover'>
+                <!-- add rows dynamically, with specific remove ID -->
+                <tr class='table-add-row'>
+                    <td colspan='3'>
+                        <button type='button' id='step-three-add-row' class='add-row btn btn-default btn-sm' onclick='addRow("three")'>Add Row <span class='glyphicon glyphicon-plus-sign'></button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class='error-div alert alert-danger' role='alert'></div>
         <button type='button' id='step-three-update' class='update-button btn btn-default'>Update <span class='glyphicon glyphicon-circle-arrow-up'></button>
     </div>
     <div id='step-four'>
@@ -105,6 +109,7 @@
                 <!-- add the following row dynamically -->
             </table>
         </div>
+        <div class='error-div alert alert-danger' role='alert'></div>
         <button type='button' id='step-four-run' class='run-button btn btn-default'>Run <span class='glyphicon glyphicon-ok-sign'></button>
     </div>
     <div id='step-five'>
@@ -161,6 +166,7 @@
                 </tr>
             </table>
         </div>
+        <div class='error-div alert alert-danger' role='alert'></div>
         <button type='button' id='step-five-download' class='download-button btn btn-default'>Download  <span class='glyphicon glyphicon-circle-arrow-down'></button>
     </div>    
 </body>

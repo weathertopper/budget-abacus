@@ -37,7 +37,6 @@ h1, h2 {
 .table-div{
     max-height: 350px;
     overflow: auto;
-    margin-bottom: 30px;
 }
 
 tr td:nth-child(1), tr th:nth-child(1) {
@@ -61,6 +60,7 @@ td {
 .csv-button, .update-button, .run-button, .download-button {
     background-color: floralwhite;
     margin-left: 3%;
+    margin-top: 20px;
 }
 
 input, select, .add-row {
@@ -85,4 +85,8 @@ select {
 
 .table-add-row {
     text-align: center;
+}
+
+.error-div {
+    display: none;
 }
