@@ -6,9 +6,9 @@
     <link rel='stylesheet' href='./bootstrap-3.3.7-dist/css/bootstrap.css'>
     <link rel='stylesheet' href='home.css'>
     <script src='./jquery-3.2.1.min.js'></script>
-    <script src='default.json'></script>
+    <!-- <script src='catagories.json'></script>
+    <script src='transaction-hosts.json'></script> -->
     <script src='globals.js'></script>
-    <script src='table_manipulation.js'></script>
     <script src='home.js'></script>
 </head>
 <body class = 'container'>
@@ -20,8 +20,11 @@
             <h2>Step One <small>select a csv file</small></h2>
         </div>
         <div class='error-div alert alert-danger' role='alert'></div>
-        <label for='csv-input' class='csv-button btn btn-default'>Select CSV <span class='glyphicon glyphicon-file'></label>
-        <input name='csv-input' type='file' id='csv-input'>
+        <div class = 'label-and-input'>
+            <label for='csv-input' class='csv-button btn btn-default'>Select CSV <span class='glyphicon glyphicon-file'></label>
+            <input name='csv-input' type='file' id='csv-input'>
+            <span id='file_name_span'></span>
+        </div>
     </div>
     <div id='step-two'>
         <div class='page-header'>

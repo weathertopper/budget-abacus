@@ -60,7 +60,15 @@ td {
 .csv-button, .update-button, .run-button, .download-button {
     background-color: floralwhite;
     margin-left: 3%;
+}
+
+.label-and-input, .update-button, .run-button, .download-button {
     margin-top: 20px;
+}
+
+.label-and-input #file_name_span {
+    margin-left: 5px;
+    font-weight: bold;
 }
 
 input, select, .add-row {
