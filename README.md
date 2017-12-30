@@ -141,6 +141,7 @@ I'm not going to use git issues because it's just me.
 - Hide all Steps >1 until CSV selected in Step 1
 - Hide all Steps until previous Steps have been completed once
 - Add area in each step for error report
+- Add info pop-ups to headers
 
 I plan on doing the UI first because it's easier. This includes the dynamic and download bits. Then I'll add functionality. 
 
