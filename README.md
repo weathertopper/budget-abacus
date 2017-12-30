@@ -1,4 +1,4 @@
-# budget_abacus
+# budget-abacus
 
 A better name for this would be `budget_tracker`, but that doesn't sound as cool. 
 
