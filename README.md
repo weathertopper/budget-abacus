@@ -28,7 +28,7 @@ Rough format (I'm not going to post an actual example)
 
 ### Step One
 
-**Select CSV from _< insert bank name here>_**
+**Select CSV from file system**
 
 This is a simple browse button for selecting a CSV file. The CSV file is scanned for the possible errors.
 
