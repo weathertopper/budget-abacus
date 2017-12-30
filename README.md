@@ -103,6 +103,7 @@ Only unknown `Transaction Host`s from the selected CSV file are in this table. `
 
 Possible Errors: 
  - `Catagory` must be selected from the dropdown
+ - CSV file not selected in Step One
 
 ### Step Five
 
@@ -124,9 +125,20 @@ There is also a `Download` button that triggers the download of a CSV  file. The
 
 That's the bulk of it. 
 
-#TODO
+# TODO
 
 I'm not going to use git issues because it's just me. 
+
+- Read/Write CSV file
+- Read/Write JSON file
+- Add/Remove table row on button click
+- Generate and trigger download of CSV file on button click
+- Enable/Disable button on input change
+- Read input/dropdown value on button click
+- String within string loopup (for `Transaction Host`s)
+- JSON to CSV text conversion (probably)
+
+I plan on doing the UI first because it's easier. This includes the dynamic and download bits. Then I'll add functionality. 
 
 
 
