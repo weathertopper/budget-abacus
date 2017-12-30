@@ -21,9 +21,36 @@ h1, h2 {
     color: inherit;
 }
 
-.table-div table {
+.table-div, .table-header-div {
     width: 70%;
     margin: auto;
+}
+
+.table-header-div .table {
+    margin-bottom: 0px;
+}
+
+.table-div{
+    max-height: 350px;
+    overflow: auto;
+}
+
+tr td:nth-child(1), tr th:nth-child(1) {
+    width: 60%;
+}
+
+th {
+    font-family: 'Ubuntu Mono', monospace;
+    font-weight: bold;
+    font-size: 115%;
+}
+
+td {
+    font-weight: bold;
+}
+
+.results-header-row th{
+    text-align: center;
 }
 
 .csv-button, .update-button, .run-button, .download-button {

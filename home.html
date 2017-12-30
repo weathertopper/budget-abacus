@@ -25,9 +25,8 @@
         <div class='page-header'>
             <h2>Step Two <small>specify budget catagories and expected costs</small></h2>
         </div>
-        <div class='table-container'>
-            <div class='table-div'>
-                <table class='table table-hover'>
+            <div class='table-header-div'>
+                <table class='table'>
                     <tr class='table-header-row'>
                         <th>
                             Catagory
@@ -38,8 +37,220 @@
                         <th>
                         </th>
                     </tr>
+                </table>
+            </div>
+            <div class='table-div'>
+                <table class='table table-hover'>
                     <!-- pre-populate with values from default.json -->
                     <!-- add the following row dynamically, with specific IDs for remove buttons -->
+                    <tr class='table-data-row'>
+                        <td>
+                            <input type='text' class='catagory' value=''>
+                        </td>
+                        <td>
+                            <span class = 'dollar-sign'>$</span>
+                            <input type='text' class='expected-cost' value=''>
+                            <span class = 'cents'><sup>.00</sup></span>
+                        </td>
+                        <td>
+                            <button type="button" id='step-four-remove-row' class='close'><span class='glyphicon glyphicon-remove-sign'></button>
+                        </td>
+                    </tr>
+                    <tr class='table-data-row'>
+                        <td>
+                            <input type='text' class='catagory' value=''>
+                        </td>
+                        <td>
+                            <span class = 'dollar-sign'>$</span>
+                            <input type='text' class='expected-cost' value=''>
+                            <span class = 'cents'><sup>.00</sup></span>
+                        </td>
+                        <td>
+                            <button type="button" id='step-four-remove-row' class='close'><span class='glyphicon glyphicon-remove-sign'></button>
+                        </td>
+                    </tr>
+                    <tr class='table-data-row'>
+                        <td>
+                            <input type='text' class='catagory' value=''>
+                        </td>
+                        <td>
+                            <span class = 'dollar-sign'>$</span>
+                            <input type='text' class='expected-cost' value=''>
+                            <span class = 'cents'><sup>.00</sup></span>
+                        </td>
+                        <td>
+                            <button type="button" id='step-four-remove-row' class='close'><span class='glyphicon glyphicon-remove-sign'></button>
+                        </td>
+                    </tr>
+                    <tr class='table-data-row'>
+                        <td>
+                            <input type='text' class='catagory' value=''>
+                        </td>
+                        <td>
+                            <span class = 'dollar-sign'>$</span>
+                            <input type='text' class='expected-cost' value=''>
+                            <span class = 'cents'><sup>.00</sup></span>
+                        </td>
+                        <td>
+                            <button type="button" id='step-four-remove-row' class='close'><span class='glyphicon glyphicon-remove-sign'></button>
+                        </td>
+                    </tr>
+                    <tr class='table-data-row'>
+                        <td>
+                            <input type='text' class='catagory' value=''>
+                        </td>
+                        <td>
+                            <span class = 'dollar-sign'>$</span>
+                            <input type='text' class='expected-cost' value=''>
+                            <span class = 'cents'><sup>.00</sup></span>
+                        </td>
+                        <td>
+                            <button type="button" id='step-four-remove-row' class='close'><span class='glyphicon glyphicon-remove-sign'></button>
+                        </td>
+                    </tr>
+                    <tr class='table-data-row'>
+                        <td>
+                            <input type='text' class='catagory' value=''>
+                        </td>
+                        <td>
+                            <span class = 'dollar-sign'>$</span>
+                            <input type='text' class='expected-cost' value=''>
+                            <span class = 'cents'><sup>.00</sup></span>
+                        </td>
+                        <td>
+                            <button type="button" id='step-four-remove-row' class='close'><span class='glyphicon glyphicon-remove-sign'></button>
+                        </td>
+                    </tr>
+                    <tr class='table-data-row'>
+                        <td>
+                            <input type='text' class='catagory' value=''>
+                        </td>
+                        <td>
+                            <span class = 'dollar-sign'>$</span>
+                            <input type='text' class='expected-cost' value=''>
+                            <span class = 'cents'><sup>.00</sup></span>
+                        </td>
+                        <td>
+                            <button type="button" id='step-four-remove-row' class='close'><span class='glyphicon glyphicon-remove-sign'></button>
+                        </td>
+                    </tr>
+                    <tr class='table-data-row'>
+                        <td>
+                            <input type='text' class='catagory' value=''>
+                        </td>
+                        <td>
+                            <span class = 'dollar-sign'>$</span>
+                            <input type='text' class='expected-cost' value=''>
+                            <span class = 'cents'><sup>.00</sup></span>
+                        </td>
+                        <td>
+                            <button type="button" id='step-four-remove-row' class='close'><span class='glyphicon glyphicon-remove-sign'></button>
+                        </td>
+                    </tr>
+                    <tr class='table-data-row'>
+                        <td>
+                            <input type='text' class='catagory' value=''>
+                        </td>
+                        <td>
+                            <span class = 'dollar-sign'>$</span>
+                            <input type='text' class='expected-cost' value=''>
+                            <span class = 'cents'><sup>.00</sup></span>
+                        </td>
+                        <td>
+                            <button type="button" id='step-four-remove-row' class='close'><span class='glyphicon glyphicon-remove-sign'></button>
+                        </td>
+                    </tr>
+                    <tr class='table-data-row'>
+                        <td>
+                            <input type='text' class='catagory' value=''>
+                        </td>
+                        <td>
+                            <span class = 'dollar-sign'>$</span>
+                            <input type='text' class='expected-cost' value=''>
+                            <span class = 'cents'><sup>.00</sup></span>
+                        </td>
+                        <td>
+                            <button type="button" id='step-four-remove-row' class='close'><span class='glyphicon glyphicon-remove-sign'></button>
+                        </td>
+                    </tr>
+                    <tr class='table-data-row'>
+                        <td>
+                            <input type='text' class='catagory' value=''>
+                        </td>
+                        <td>
+                            <span class = 'dollar-sign'>$</span>
+                            <input type='text' class='expected-cost' value=''>
+                            <span class = 'cents'><sup>.00</sup></span>
+                        </td>
+                        <td>
+                            <button type="button" id='step-four-remove-row' class='close'><span class='glyphicon glyphicon-remove-sign'></button>
+                        </td>
+                    </tr>
+                    <tr class='table-data-row'>
+                        <td>
+                            <input type='text' class='catagory' value=''>
+                        </td>
+                        <td>
+                            <span class = 'dollar-sign'>$</span>
+                            <input type='text' class='expected-cost' value=''>
+                            <span class = 'cents'><sup>.00</sup></span>
+                        </td>
+                        <td>
+                            <button type="button" id='step-four-remove-row' class='close'><span class='glyphicon glyphicon-remove-sign'></button>
+                        </td>
+                    </tr>
+                    <tr class='table-data-row'>
+                        <td>
+                            <input type='text' class='catagory' value=''>
+                        </td>
+                        <td>
+                            <span class = 'dollar-sign'>$</span>
+                            <input type='text' class='expected-cost' value=''>
+                            <span class = 'cents'><sup>.00</sup></span>
+                        </td>
+                        <td>
+                            <button type="button" id='step-four-remove-row' class='close'><span class='glyphicon glyphicon-remove-sign'></button>
+                        </td>
+                    </tr>
+                    <tr class='table-data-row'>
+                        <td>
+                            <input type='text' class='catagory' value=''>
+                        </td>
+                        <td>
+                            <span class = 'dollar-sign'>$</span>
+                            <input type='text' class='expected-cost' value=''>
+                            <span class = 'cents'><sup>.00</sup></span>
+                        </td>
+                        <td>
+                            <button type="button" id='step-four-remove-row' class='close'><span class='glyphicon glyphicon-remove-sign'></button>
+                        </td>
+                    </tr>
+                    <tr class='table-data-row'>
+                        <td>
+                            <input type='text' class='catagory' value=''>
+                        </td>
+                        <td>
+                            <span class = 'dollar-sign'>$</span>
+                            <input type='text' class='expected-cost' value=''>
+                            <span class = 'cents'><sup>.00</sup></span>
+                        </td>
+                        <td>
+                            <button type="button" id='step-four-remove-row' class='close'><span class='glyphicon glyphicon-remove-sign'></button>
+                        </td>
+                    </tr>
+                    <tr class='table-data-row'>
+                        <td>
+                            <input type='text' class='catagory' value=''>
+                        </td>
+                        <td>
+                            <span class = 'dollar-sign'>$</span>
+                            <input type='text' class='expected-cost' value=''>
+                            <span class = 'cents'><sup>.00</sup></span>
+                        </td>
+                        <td>
+                            <button type="button" id='step-four-remove-row' class='close'><span class='glyphicon glyphicon-remove-sign'></button>
+                        </td>
+                    </tr>
                     <tr class='table-data-row'>
                         <td>
                             <input type='text' class='catagory' value=''>
@@ -60,16 +271,14 @@
                     </tr>
                 </table>
             </div>
-        </div>
         <button type='button' id='step-two-update' class='update-button btn btn-default'>Update  <span class='glyphicon glyphicon-circle-arrow-up'></button>
     </div>
     <div id='step-three'>
         <div class='page-header'>
             <h2>Step Three <small>add, update, or remove known transaction hosts</small></h2>
         </div>
-        <div class='table-container'>
-            <div class='table-div'>
-                <table class='table table-hover'>
+            <div class='table-header-div'>
+                <table class='table'>
                     <tr class='table-header-row'>
                         <th>
                             Transaction Host
@@ -80,7 +289,137 @@
                         <th>
                         </th>
                     </tr>
+                </table>
+            </div>
+            <div class='table-div'>
+                <table class='table table-hover'>
                     <!-- add the following row dynamically, with specific remove ID -->
+                    <tr class='table-data-row'>
+                        <td>
+                            <input type='text' class='transaction-host' value=''>
+                        </td>
+                        <td>
+                            <select class='catagory-dropdown' >
+                                <!-- populate this dropdown with values from step 2 -->
+                                <option>Select a Catagory</option>
+                            </select>
+                        </td>
+                        <td>
+                            <button type="button" id='step-three-remove-row' class="close "><span class='glyphicon glyphicon-remove-sign'></button>
+                        </td>
+                    </tr>
+                    <tr class='table-data-row'>
+                        <td>
+                            <input type='text' class='transaction-host' value=''>
+                        </td>
+                        <td>
+                            <select class='catagory-dropdown' >
+                                <!-- populate this dropdown with values from step 2 -->
+                                <option>Select a Catagory</option>
+                            </select>
+                        </td>
+                        <td>
+                            <button type="button" id='step-three-remove-row' class="close "><span class='glyphicon glyphicon-remove-sign'></button>
+                        </td>
+                    </tr>
+                    <tr class='table-data-row'>
+                        <td>
+                            <input type='text' class='transaction-host' value=''>
+                        </td>
+                        <td>
+                            <select class='catagory-dropdown' >
+                                <!-- populate this dropdown with values from step 2 -->
+                                <option>Select a Catagory</option>
+                            </select>
+                        </td>
+                        <td>
+                            <button type="button" id='step-three-remove-row' class="close "><span class='glyphicon glyphicon-remove-sign'></button>
+                        </td>
+                    </tr>
+                    <tr class='table-data-row'>
+                        <td>
+                            <input type='text' class='transaction-host' value=''>
+                        </td>
+                        <td>
+                            <select class='catagory-dropdown' >
+                                <!-- populate this dropdown with values from step 2 -->
+                                <option>Select a Catagory</option>
+                            </select>
+                        </td>
+                        <td>
+                            <button type="button" id='step-three-remove-row' class="close "><span class='glyphicon glyphicon-remove-sign'></button>
+                        </td>
+                    </tr>
+                    <tr class='table-data-row'>
+                        <td>
+                            <input type='text' class='transaction-host' value=''>
+                        </td>
+                        <td>
+                            <select class='catagory-dropdown' >
+                                <!-- populate this dropdown with values from step 2 -->
+                                <option>Select a Catagory</option>
+                            </select>
+                        </td>
+                        <td>
+                            <button type="button" id='step-three-remove-row' class="close "><span class='glyphicon glyphicon-remove-sign'></button>
+                        </td>
+                    </tr>
+                    <tr class='table-data-row'>
+                        <td>
+                            <input type='text' class='transaction-host' value=''>
+                        </td>
+                        <td>
+                            <select class='catagory-dropdown' >
+                                <!-- populate this dropdown with values from step 2 -->
+                                <option>Select a Catagory</option>
+                            </select>
+                        </td>
+                        <td>
+                            <button type="button" id='step-three-remove-row' class="close "><span class='glyphicon glyphicon-remove-sign'></button>
+                        </td>
+                    </tr>
+                    <tr class='table-data-row'>
+                        <td>
+                            <input type='text' class='transaction-host' value=''>
+                        </td>
+                        <td>
+                            <select class='catagory-dropdown' >
+                                <!-- populate this dropdown with values from step 2 -->
+                                <option>Select a Catagory</option>
+                            </select>
+                        </td>
+                        <td>
+                            <button type="button" id='step-three-remove-row' class="close "><span class='glyphicon glyphicon-remove-sign'></button>
+                        </td>
+                    </tr>
+                    <tr class='table-data-row'>
+                        <td>
+                            <input type='text' class='transaction-host' value=''>
+                        </td>
+                        <td>
+                            <select class='catagory-dropdown' >
+                                <!-- populate this dropdown with values from step 2 -->
+                                <option>Select a Catagory</option>
+                            </select>
+                        </td>
+                        <td>
+                            <button type="button" id='step-three-remove-row' class="close "><span class='glyphicon glyphicon-remove-sign'></button>
+                        </td>
+                    </tr>
+                    <tr class='table-data-row'>
+                        <td>
+                            <input type='text' class='transaction-host' value=''>
+                        </td>
+                        <td>
+                            <select class='catagory-dropdown' >
+                                <!-- populate this dropdown with values from step 2 -->
+                                <option>Select a Catagory</option>
+                            </select>
+                        </td>
+                        <td>
+                            <button type="button" id='step-three-remove-row' class="close "><span class='glyphicon glyphicon-remove-sign'></button>
+                        </td>
+                    </tr>
                     <tr class='table-data-row'>
                         <td>
                             <input type='text' class='transaction-host' value=''>
@@ -102,38 +441,129 @@
                     </tr>
                 </table>
             </div>
-        </div>
         <button type='button' id='step-three-update' class='update-button btn btn-default'>Update <span class='glyphicon glyphicon-circle-arrow-up'></button>
     </div>
     <div id='step-four'>
         <div class='page-header'>
             <h2>Step Four <small>catagorize unknown transaction hosts</small></h2>
         </div>
-        <div class='table-container'>
-            <div class='table-div'>
-                <table class='table table-hover'>
-                    <tr class='table-header-row'>
-                        <th>
-                            Transaction Host
-                        </th>
-                        <th>
-                            Catagory
-                        </th>
-                    </tr>
-                    <!-- add the following row dynamically -->
-                    <tr class='table-data-row'>
-                        <td>
-                            transaction-host-here
-                        </td>
-                        <td>
-                            <select class='catalog-dropdown'>
-                                <!-- populate this dropdown with values from step 3 -->
-                                <option>Select a Catagory</option>
-                            </select>
-                        </td>
-                    </tr>
-                </table>
-            </div>
+        <div class='table-header-div'>
+            <table class='table'>
+                <tr class='table-header-row'>
+                    <th>
+                        Transaction Host
+                    </th>
+                    <th>
+                        Catagory
+                    </th>
+                    <th>
+                    </th>
+                </tr>
+            </table>
+        </div>
+        <div class='table-div'>
+            <table class='table table-hover'>
+                <!-- add the following row dynamically -->
+                <tr class='table-data-row'>
+                    <td>
+                        transaction-host-here
+                    </td>
+                    <td>
+                        <select class='catalog-dropdown'>
+                            <!-- populate this dropdown with values from step 3 -->
+                            <option>Select a Catagory</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class='table-data-row'>
+                    <td>
+                        transaction-host-here
+                    </td>
+                    <td>
+                        <select class='catalog-dropdown'>
+                            <!-- populate this dropdown with values from step 3 -->
+                            <option>Select a Catagory</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class='table-data-row'>
+                    <td>
+                        transaction-host-here
+                    </td>
+                    <td>
+                        <select class='catalog-dropdown'>
+                            <!-- populate this dropdown with values from step 3 -->
+                            <option>Select a Catagory</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class='table-data-row'>
+                    <td>
+                        transaction-host-here
+                    </td>
+                    <td>
+                        <select class='catalog-dropdown'>
+                            <!-- populate this dropdown with values from step 3 -->
+                            <option>Select a Catagory</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class='table-data-row'>
+                    <td>
+                        transaction-host-here
+                    </td>
+                    <td>
+                        <select class='catalog-dropdown'>
+                            <!-- populate this dropdown with values from step 3 -->
+                            <option>Select a Catagory</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class='table-data-row'>
+                    <td>
+                        transaction-host-here
+                    </td>
+                    <td>
+                        <select class='catalog-dropdown'>
+                            <!-- populate this dropdown with values from step 3 -->
+                            <option>Select a Catagory</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class='table-data-row'>
+                    <td>
+                        transaction-host-here
+                    </td>
+                    <td>
+                        <select class='catalog-dropdown'>
+                            <!-- populate this dropdown with values from step 3 -->
+                            <option>Select a Catagory</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class='table-data-row'>
+                    <td>
+                        transaction-host-here
+                    </td>
+                    <td>
+                        <select class='catalog-dropdown'>
+                            <!-- populate this dropdown with values from step 3 -->
+                            <option>Select a Catagory</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class='table-data-row'>
+                    <td>
+                        transaction-host-here
+                    </td>
+                    <td>
+                        <select class='catalog-dropdown'>
+                            <!-- populate this dropdown with values from step 3 -->
+                            <option>Select a Catagory</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
         </div>
         <button type='button' id='step-four-run' class='run-button btn btn-default'>Run <span class='glyphicon glyphicon-ok-sign'></button>
     </div>
@@ -144,7 +574,7 @@
         <!-- add the following table dynamically only after all previous steps completed-->
         <div class='table-div'>
             <table class='table table-hover'>
-                <tr class='table-header-row'>
+                <tr class='results-header-row table-header-row'>
                     <th colspan='2'>
                         date-start to date-end
                     </th>
