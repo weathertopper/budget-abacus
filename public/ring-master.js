@@ -14,9 +14,14 @@ $(document).ready(function(){
             showError('one', 'Incorrect file extension');
         }
     })
+    $("#step-two-add-row").click(function(){ // use `function` for `this`
+        addRow("two", {"cat_val":"", "cost_val": ""});
+    });
     $("#step-two-update").click(() => {
-        alert(Date.now());
         step2Update();
+    });
+    $("#step-three-add-row").click(function(){ // use `function` for `this`
+        addRow("three");
     });
     $("#step-three-update").click(() => {
         step3Update();
