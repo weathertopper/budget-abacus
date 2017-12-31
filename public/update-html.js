@@ -34,14 +34,12 @@ const addRow = (step_num, params) => {
 //  returns string
 const buildOptions = (cat_array, host_cat) => {
     let opts_string = '';
-    let opt_val_count = 1; // 0 is the default (already added);
     for (let cat_id in cat_array){
         const catagory = cat_array[cat_id];
         const selected = (catagory == host_cat) ? 'selected' : '';
-        const params = {'val_id': opt_val_count, 'opt_text': catagory, 'selected': selected}; //def for now
+        const params = {'val_id': catagory, 'opt_text': catagory, 'selected': selected}; //def for now
         const opt_row = addOption(params);
         opts_string += opt_row;
-        opt_val_count++;
     }
     console.log(opts_string);
     return opts_string;
@@ -75,4 +73,14 @@ const getStep2Input = () => {
         updated_catagories[row_cat] = row_cost;
     })
     return updated_catagories;
+}
+
+const getStep3Input = () => {
+    let updated_hosts = {};
+    $('#step-three .table-data-row').each(function() { // `function` for `this`
+        const row_host = $(this).find('.transaction-host').val().toUpperCase();
+        const row_cat = $(this).find('.catagory-dropdown').val();
+        updated_hosts[row_host] = row_cat;
+    })
+    return updated_hosts;
 }

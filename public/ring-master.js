@@ -146,11 +146,39 @@ const step3Populate = () => {
             }
         }
     )
-    //  do all catagories still exist? 
 }
 
 const step3Update = () => {
-    showError('three', 'Step Three error');
+    hideError('three')
+    let step3Input = getStep3Input();
+    const validated_input = validateStep3Input(step3Input);
+    if (validated_input){
+        writeJSON('transaction-hosts.json', validated_input);
+    }
+    //  already threw errors
+}
+
+//  again, duplicates get simplified
+const validateStep3Input = (step3Input) => {
+    for (let host in step3Input){
+        if (host.length == 0){
+            const error_string = 'Empty Transaction Host';
+            showError('three', error_string);
+            return false;
+        }
+        if (host.includes('"')
+            || host.includes(',')){
+            const error_string = 'Transaction Host ' + host + ' contains illegal character';
+            showError('three', error_string);
+            return false;
+        }
+        if(step3Input[host]== 'default'){
+            const error_string = 'Select Catagory for Transaction Host ' + host;
+            showError('three', error_string);
+            return false;
+        }
+    }
+    return step3Input;
 }
 
 const step3Clear = () => {

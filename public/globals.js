@@ -31,7 +31,7 @@ const add_row_strings = {
                 <td>
                     <select class='catagory-dropdown' >
                         <!-- populate this dropdown with values from step 2 -->
-                        <option value='0'>Select a Catagory</option>
+                        <option value='default'>Select a Catagory</option>
                         %options%
                     </select>
                 </td>
