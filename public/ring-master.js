@@ -39,7 +39,11 @@ $(document).ready(function(){
     $("#step-five-download").click(() => {
         step5Download();
     });
-    populateSteps();
+    // populateSteps();
+    hideStep('two');
+    hideStep('three');
+    hideStep('four');
+    hideStep('five');
 });
 
 const readCSVFile = (file) => {
@@ -48,9 +52,9 @@ const readCSVFile = (file) => {
     file_reader.readAsDataURL(file)
 }
 
-const populateSteps = () => {
-    step2Populate();
-}
+// const populateSteps = () => {
+//     step2Populate();
+// }
 
 const step1Select = (file) => {
     const result = (file.currentTarget.result) ? file.currentTarget.result : null;
@@ -63,6 +67,8 @@ const step1Select = (file) => {
             console.log('good data');
             //  setting global var
             csv_as_json = data_multi_array;
+            showStep('two');
+            step2Populate();
         }
         else{
             showError('one', 'Incorrect data format')
@@ -93,6 +99,7 @@ const step2Update = () => {
     const validated_input = validateStep2Input(step2Input)
     if (validated_input){
         writeJSON('catagories.json', validated_input);
+        showStep('three');
         step3Populate();
         step4Populate();
     }
@@ -157,6 +164,7 @@ const step3Update = () => {
     const validated_input = validateStep3Input(step3Input);
     if (validated_input){
         writeJSON('transaction-hosts.json', validated_input);
+        showStep('four');
         step4Populate();
     }
     //  already threw errors
@@ -226,6 +234,7 @@ const validateStep4Input = (step4Input) => {
 }
 
 const step4Run = () => {
+    showStep('five');
     showError('four', 'Step Four error');
 }
 

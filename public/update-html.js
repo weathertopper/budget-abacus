@@ -10,6 +10,16 @@ const hideError = (step_num) => {
         .css('display', 'none');
 }
 
+const hideStep = (step_num) => {
+    $(`#step-${step_num}`)
+        .css('display', 'none');
+}
+
+const showStep = (step_num) => {
+    $(`#step-${step_num}`)
+        .css('display', 'block');
+}
+
 //  not part of click() function bc Date.now() needed for id
 //  params is JSON obj of key/val pairs to replace in row
 const addRow = (step_num, params) => {
