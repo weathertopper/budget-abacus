@@ -41,14 +41,15 @@ const add_row_strings = {
                     </button>
                 </td>
             </tr>`,
-    'four': `<tr class='table-data-row'>
-                <td>
-                    transaction-host-here
+    'four': `<tr class='table-data-row' id='%id%'>
+                <td class='host_val'>
+                    %host_val%
                 </td>
-                <td>
+                <td class='step-four-catagory'>
                     <select class='catalog-dropdown'>
                         <!-- populate this dropdown with values from step 3 -->
                         <option>Select a Catagory</option>
+                        %options%
                     </select>
                 </td>
             </tr>`

@@ -53,6 +53,10 @@ td {
     font-weight: bold;
 }
 
+.table-data-row td.step-four-catagory {
+    vertical-align: middle;
+}
+
 .results-header-row th{
     text-align: center;
 }

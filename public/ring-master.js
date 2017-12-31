@@ -74,6 +74,7 @@ const step1Select = (file) => {
 }
 
 const step2Populate = () => {
+    hideError('two')
     readJSON('catagories.json').then(
         (catagories) => {
             for (let catagory in catagories){
@@ -93,6 +94,7 @@ const step2Update = () => {
     if (validated_input){
         writeJSON('catagories.json', validated_input);
         step3Populate();
+        step4Populate();
     }
     //  already threw errors
 }
@@ -131,6 +133,7 @@ const validateStep2Input = (step2Input) => {
 
 const step3Populate = () => {
     step3Clear();
+    hideError('three')
     readJSON('transaction-hosts.json').then(
         (hosts) => {
             for (let host in hosts){
@@ -154,6 +157,7 @@ const step3Update = () => {
     const validated_input = validateStep3Input(step3Input);
     if (validated_input){
         writeJSON('transaction-hosts.json', validated_input);
+        step4Populate();
     }
     //  already threw errors
 }
@@ -185,9 +189,50 @@ const step3Clear = () => {
     $( "#step-three .table-data-row" ).remove()
 }
 
+//  where do i filter?
+const step4Populate = () => {
+    step4Clear();
+    hideError('four')
+    if(csv_as_json){    //  must have csv
+        readJSON('transaction-hosts.json').then(
+            (hosts) => {
+                readJSON('catagories.json').then(
+                    (catagories) => {
+                        const header_row = csv_as_json[0];
+                        const host_id = header_row.indexOf('Description');
+                        const amount_id = header_row.indexOf('Amount');
+                        let host_amount = csv_as_json.map( (row) => [row[host_id], row[amount_id]]);
+                        host_amount.shift(); //  remove header;
+                        console.log(host_amount);
+                        const just_catagories = Object.keys(catagories);
+                        const options = buildOptions(just_catagories, '');
+                        for (let row_id in host_amount){
+                            const row = host_amount[row_id];
+                            const params = {'host_val': row[0], 'options': options};
+                            addRow('four', params);
+                        }
+                    }
+                )
+            }
+        )
+    }
+    else{
+        showError('four', 'No CSV file');
+    }
+}
+
+const validateStep4Input = (step4Input) => {
+    
+}
+
 const step4Run = () => {
     showError('four', 'Step Four error');
 }
+
+const step4Clear = () => {
+    $( "#step-four .table-data-row" ).remove();
+}
+
 
 const step5Download = () => {
     showError('five', 'Step Five error');
