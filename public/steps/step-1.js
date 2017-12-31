@@ -12,9 +12,8 @@ const step1Select = (file) => {
         let decoded_data = window.atob(encoded_data);
         let data_multi_array = CSVtoJSON(decoded_data);
         if (validFileContent(data_multi_array)){
-            console.log('good data');
             //  setting global var
-            csv_as_json = data_multi_array;
+            csv_as_json = trimJSON(data_multi_array);
             showStep('two');
             step2Populate();
         }

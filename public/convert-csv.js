@@ -17,8 +17,7 @@ const CSVtoJSON = (data_as_string) => {
             row[inner_index] = row[inner_index].trim();
         }
         data_multi_array.push(row);
-    }    
-    console.log(data_multi_array);
+    }
     return data_multi_array;
 }
 
@@ -40,5 +39,4 @@ const validFileContent = (csv_as_json) => {
             && header_lower_case.includes('amount')
             && header_lower_case.includes('daily posted balance')
     )
-
 }

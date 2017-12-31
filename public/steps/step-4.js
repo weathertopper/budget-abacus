@@ -12,7 +12,6 @@ const step4Populate = () => {
                         const amount_id = header_row.indexOf('Amount');
                         let host_amount = csv_as_json.map( (row) => [row[host_id], row[amount_id]]);
                         host_amount.shift(); //  remove header;
-                        console.log(host_amount);
                         const just_catagories = Object.keys(catagories);
                         const options = buildOptions(just_catagories, '');
                         for (let row_id in host_amount){

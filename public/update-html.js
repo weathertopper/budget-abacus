@@ -63,7 +63,6 @@ const buildOptions = (cat_array, host_cat) => {
         const opt_row = addOption(params);
         opts_string += opt_row;
     }
-    console.log(opts_string);
     return opts_string;
 }
 

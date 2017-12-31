@@ -35,6 +35,11 @@ h1, h2 {
 }
 
 .table-div{
+    margin-bottom: 20px;
+}
+
+/* different bc no add button */
+#step-four .table-div{
     max-height: 350px;
     overflow: auto;
 }

@@ -32,6 +32,7 @@ $(document).ready(function(){
     });
     $("#step-three-update").click(() => {
         step3Update();
+        //  clean up 
     });
     $("#step-four-run").click(() => {
         step4Run();
