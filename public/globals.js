@@ -2,6 +2,9 @@ const server_addr = 'http://localhost:3000/';
 
 let csv_as_json;    //  fill in w/ step one
 
+//  const to guarantee I make a copy
+const catagory_option_string = `<option value='%val_id%' %selected%>%opt_text%</option>`;
+
 //  organized by step
 const add_row_strings = {
     'two' : `<tr class='table-data-row' id='%id%'>
@@ -23,12 +26,13 @@ const add_row_strings = {
             </tr>`,
     'three': `<tr class='table-data-row' id='%id%'>
                 <td>
-                    <input type='text' class='transaction-host' value=''>
+                    <input type='text' class='transaction-host' value='%host_val%'>
                 </td>
                 <td>
                     <select class='catagory-dropdown' >
                         <!-- populate this dropdown with values from step 2 -->
-                        <option>Select a Catagory</option>
+                        <option value='0'>Select a Catagory</option>
+                        %options%
                     </select>
                 </td>
                 <td>
