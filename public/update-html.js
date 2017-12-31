@@ -20,6 +20,13 @@ const showStep = (step_num) => {
         .css('display', 'block');
 }
 
+const hideStepsOnStartup = () => {
+    hideStep('two');
+    hideStep('three');
+    hideStep('four');
+    hideStep('five');
+}
+
 //  not part of click() function bc Date.now() needed for id
 //  params is JSON obj of key/val pairs to replace in row
 const addRow = (step_num, params) => {
