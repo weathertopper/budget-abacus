@@ -138,8 +138,8 @@ I'm not going to use git issues because it's just me.
 - String within string lookup (for `Transaction Host`s)
 - JSON to CSV text conversion (probably)
 - ~~Add selected file to input label~~
-- Hide all Steps >1 until CSV selected in Step 1
-- Hide all Steps until previous Steps have been completed once
+- ~~Hide all Steps >1 until CSV selected in Step 1~~
+- ~~Hide all Steps until previous Steps have been completed once~~
 - ~~Add area in each step for error report~~
 - Add info pop-ups to headers
 - Add Setup section to this README
