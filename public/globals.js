@@ -1,12 +1,16 @@
+const server_addr = 'http://localhost:3000/';
+
+let csv_as_json;    //  fill in w/ step one
+
 //  organized by step
 const add_row_strings = {
     'two' : `<tr class='table-data-row' id='%id%'>
                 <td>
-                    <input type='text' class='catagory' value=''>
+                    <input type='text' class='catagory' value='%cat_val%'>
                 </td>
                 <td>
                     <span class = 'dollar-sign'>$</span>
-                    <input type='text' class='expected-cost' value=''>
+                    <input type='text' class='expected-cost' value='%cost_val%'>
                     <span class = 'cents'>
                         <sup>.00</sup>
                     </span> 
@@ -45,7 +49,3 @@ const add_row_strings = {
                 </td>
             </tr>`
 }
-
-let catagories = {}; // used as local copy of `catagory` default. updated by update button in step 2
-
-let transaction_hosts = {}; //  used as local copy of  `transaction_host` default. updated by update button in step three
