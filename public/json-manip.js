@@ -10,6 +10,7 @@ const trimJSON = (csv_as_json) => {
 }
 
 // returns json
+
 const updateCatagories = (csv_as_json) => {
     return csv_as_json;
 }

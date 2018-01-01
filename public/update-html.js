@@ -43,6 +43,10 @@ const addRow = (step_num, params) => {
     id = id.replace(/\s/g, "-");
     id = id.replace(/'/g, "-");
     id = id.replace(/"/g, "-");
+    id = id.replace(/=/g, "-");
+    id = id.replace(/\//g, "-");
+    id = id.replace(/>/g, "-");
+    id = id.replace(/</g, "-");
     //  now add id manually
     add_row = add_row.replace(/%id%/g, id);
     if (step_num == 'four'){    // four is a bit different, it doesn't have an add row
