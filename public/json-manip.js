@@ -13,12 +13,12 @@ const trimJSON = (csv_as_json) => {
     for (let row_id in csv_as_json){
         csv_as_json[row_id].splice(check_num_id, 1);
     }
-    //  updating transaction type
+    //  updating transaction type based on amount
     const tt_id = csv_as_json[0].indexOf('Transaction Type');
     const amount_id = csv_as_json[0].indexOf('Amount');
     for (let row_id in csv_as_json){
         if (row_id == 0){continue;} //  skip header
-        csv_as_json[row_id][tt_id] = (csv_as_json[row_id][amount_id].includes('(')) ? '-' : '+';
+        csv_as_json[row_id][tt_id] = (csv_as_json[row_id][amount_id].includes('(')) ? '-' : '';
     }
     //  updating amount 
     for (let row_id in csv_as_json){
@@ -26,6 +26,13 @@ const trimJSON = (csv_as_json) => {
         csv_as_json[row_id][amount_id] = csv_as_json[row_id][amount_id].replace('(', '');
         csv_as_json[row_id][amount_id] = csv_as_json[row_id][amount_id].replace('$', '');
         csv_as_json[row_id][amount_id] = csv_as_json[row_id][amount_id].replace(')', '');
+        csv_as_json[row_id][amount_id] = csv_as_json[row_id][tt_id] + csv_as_json[row_id][amount_id] // adding transaction type to amount
+    }
+    //  turn transaction type into catagory
+    csv_as_json[0][tt_id] = 'Catagory'; //header
+    for (let row_id in csv_as_json){
+        if (row_id == 0){continue;} //  skip header
+        csv_as_json[row_id][tt_id] = '';
     }
     //  updating daily posted balance
     const dpb_id = csv_as_json[0].indexOf('Daily Posted Balance');
@@ -36,14 +43,6 @@ const trimJSON = (csv_as_json) => {
     //  filling daily posted balance
     csv_as_json = fillDPB(csv_as_json);
 
-    csv_as_json[0].push('Catagory') //   add Catagory header
-    //  add catagory column
-    for (let row_id in csv_as_json){
-        if (row_id == 0){continue;} //  skip header
-        csv_as_json[row_id].push('');
-    }
-
-
     console.log(csv_as_json);
     return csv_as_json;
 }
@@ -51,7 +50,6 @@ const trimJSON = (csv_as_json) => {
 //  assumes last row in exported csv has daily posted balance (which it should)
 const fillDPB = (csv_as_json) => {
     const dpb_id = csv_as_json[0].indexOf('Daily Posted Balance');
-    const tt_id = csv_as_json[0].indexOf('Transaction Type');
     const amount_id = csv_as_json[0].indexOf('Amount');
 
     let row_id = csv_as_json.length - 1;
@@ -59,8 +57,7 @@ const fillDPB = (csv_as_json) => {
     while (row_id > 0){//  excluding header
         csv_as_json[row_id][dpb_id] = curr_dbp;
         const amount = csv_as_json[row_id][amount_id];
-        const transaction = csv_as_json[row_id][tt_id];
-        const math_exp = curr_dbp + ' - ' + transaction + ' ' + amount;
+        const math_exp = curr_dbp + ' - ' +  amount;
         curr_dbp = eval(math_exp).toFixed(2);
         row_id--;
     }
