@@ -78,7 +78,8 @@ const wipeHostCatagories = () => {
 
 //  returns nothing, sets global var
 //  fills in catagory regardless of what's there now  
-const fillHostCatagories = (host_cat_arr) => {
+const fillHostCatagories = (host_cat_obj) => {
+    let host_cat_arr = objToArr(host_cat_obj)
     const cat_id = csv_as_json[0].indexOf('Catagory');
     let these_hosts = Object.keys(host_cat_arr);
     const all_hosts = justHosts();

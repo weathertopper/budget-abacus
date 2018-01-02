@@ -1,5 +1,6 @@
 const step2Populate = () => {
     hideError('two')
+    step2Clear();
     readJSON('catagories.json').then(
         (catagories) => {
             for (let catagory in catagories){
@@ -55,4 +56,8 @@ const validateStep2Input = (step2Input) => {
         }
     }
     return step2Input;
+}
+
+const step2Clear = () => {
+    $( "#step-two .table-data-row" ).remove()
 }

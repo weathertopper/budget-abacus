@@ -8,7 +8,7 @@ const step4Populate = () => {
                 readJSON('catagories.json').then(
                     (catagories) => {
                         wipeHostCatagories();
-                        fillHostCatagories(objToArr(hosts));    //  turn hosts JSON into multi-d array
+                        fillHostCatagories(hosts);    //  turn hosts JSON into multi-d array
                         const header_row = csv_as_json[0];
                         const cat_id = header_row.indexOf('Catagory');
                         const host_id = header_row.indexOf('Host');
@@ -48,7 +48,7 @@ const step4Run = () => {
     const validated_input = validateStep4Input(step4Input);
     if (validated_input){
         showStep('five');
-        step5Populate();
+        step5Populate(validated_input);
     }
     //  already threw errors    
 }
