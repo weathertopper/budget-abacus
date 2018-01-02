@@ -1,4 +1,4 @@
-//  where do i filter?
+//  populates _JUST_ hosts w/o categories
 const step4Populate = () => {
     step4Clear();
     hideError('four')
@@ -7,19 +7,19 @@ const step4Populate = () => {
             (hosts) => {
                 readJSON('catagories.json').then(
                     (catagories) => {
-
-                        //  fill in known hosts in csv_as_json w/ trans-hosts.json and cat.json
-                        //  for each for in csv_as_json, if cat !== '', skip. else, make row
+                        wipeHostCatagories();
+                        fillHostCatagories(objToArr(hosts));    //  turn hosts JSON into multi-d array
                         const header_row = csv_as_json[0];
+                        const cat_id = header_row.indexOf('Catagory');
                         const host_id = header_row.indexOf('Host');
                         const amount_id = header_row.indexOf('Amount');
-                        let host_amount = csv_as_json.map( (row) => [row[host_id], row[amount_id]]);
-                        host_amount.shift(); //  remove header;
-                        const just_catagories = Object.keys(catagories);
-                        const options = buildOptions(just_catagories, '');
-                        for (let row_id in host_amount){
-                            const row = host_amount[row_id];
-                            const params = {'host_val': row[0], 'options': options};
+                        const options = buildOptions(Object.keys(catagories), '');  //  catagories as strings in options
+                        for (let row_id in csv_as_json){
+                            const row = csv_as_json[row_id];
+                            if (row[cat_id] != ''){ //  if catagory not empty
+                                continue;
+                            }
+                            const params = {'host_val': row[host_id], 'options': options};
                             addRow('four', params);
                         }
                     }

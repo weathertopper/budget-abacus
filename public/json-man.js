@@ -46,7 +46,6 @@ const trimJSON = (csv_as_json) => {
     //  filling daily posted balance
     csv_as_json = fillDPB(csv_as_json);
 
-    console.log(csv_as_json);
     return csv_as_json;
 }
 
@@ -69,7 +68,7 @@ const fillDPB = (csv_as_json) => {
 
 //  returns nothing, sets global var
 //  sets all catagory values to ''
-const wipeCatagories = () => {
+const wipeHostCatagories = () => {
     const cat_id = csv_as_json[0].indexOf('Catagory');
     for (let row_id in csv_as_json){
         if (row_id == 0){continue;} //  skip header
@@ -79,22 +78,43 @@ const wipeCatagories = () => {
 
 //  returns nothing, sets global var
 //  fills in catagory regardless of what's there now  
-const fillCatagories = (host_cat_arr) => {
+const fillHostCatagories = (host_cat_arr) => {
     const cat_id = csv_as_json[0].indexOf('Catagory');
     let these_hosts = Object.keys(host_cat_arr);
     const all_hosts = justHosts();
     for (let arr_id in host_cat_arr){
         const host_to_find = host_cat_arr[arr_id][0];
         const cat = host_cat_arr[arr_id][1];
+        const indices = findAllIndices(host_to_find, all_hosts);
+        if (indices.length > 0){
+            for (index_id in indices){
+                const index = indices[index_id];
+                csv_as_json[index][cat_id] = cat;
+            }
+        }
+    }
+}
+
+const findAllIndices = (host_to_find, all_hosts) => {
+    let indices = [];
+    let start_at = 0;
+    while(true){
         const found_host_id = all_hosts.findIndex(
             (full_host) => {
                 return full_host.toUpperCase().includes(host_to_find);
             }
-        )
-        if (found_host_id > 0){ //  exclude header
-            csv_as_json[found_host_id][cat_id] = cat;
+        );
+        if (found_host_id >= 0){ //  local index
+            const actual_index = start_at + found_host_id; 
+            start_at = actual_index + 1;
+            indices.push(actual_index);
+            all_hosts = all_hosts.slice(found_host_id + 1); //  go one past found;
+        }
+        else{
+            break;
         }
     }
+    return indices;
 }
 
 //  returns array of string hosts from global var
@@ -102,7 +122,6 @@ const justHosts = () => {
     let just_hosts = [];
     const host_id = csv_as_json[0].indexOf('Host');
     for (let row_id in csv_as_json){
-        // if (row_id == 0){continue;} //  skip header
         just_hosts.push(csv_as_json[row_id][host_id]);
     }
     return just_hosts;

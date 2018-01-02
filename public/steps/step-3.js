@@ -24,13 +24,12 @@ const step3Update = () => {
     let step3Input = getStep3Input();
     const validated_input = validateStep3Input(step3Input);
     if (validated_input){
-        writeJSON('transaction-hosts.json', validated_input);
-        let input_as_arr = objToArr(validated_input);
-        wipeCatagories();
-        fillCatagories(input_as_arr);
-        console.log(csv_as_json);
-        showStep('four');
-        step4Populate();
+        writeJSON('transaction-hosts.json', validated_input).then(
+            () => {
+                showStep('four');
+                step4Populate();
+            }
+        )
     }
     //  already threw errors
 }
