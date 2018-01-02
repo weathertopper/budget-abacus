@@ -137,3 +137,16 @@ const objToArr = (obj) => {
     }
     return arr;
 }
+
+const nothingEmpty = () => {
+    for (row_id in csv_as_json){
+        const row = csv_as_json[row_id]
+        for (col_id in row){
+            const data_val = row[col_id];
+            if (data_val == ''){
+                return false;
+            }
+        }
+    }
+    return true;
+}

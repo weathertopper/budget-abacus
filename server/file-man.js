@@ -17,4 +17,3 @@ module.exports.setJSON = (json_file_name, json_value) => {
         fs.writeFileSync(full_path, JSON.stringify(json_value));
     }
 }
-

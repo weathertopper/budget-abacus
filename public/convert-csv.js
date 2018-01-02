@@ -3,6 +3,7 @@ const validFileName = (file_name) => {
     return (file_name.indexOf('.csv') == (file_name.length - ('.csv'.length)));
 }
 
+//  technically array of arrays
 const CSVtoJSON = (data_as_string) => {
     data_as_string = data_as_string.trim();
     //  split rows by newline
@@ -39,4 +40,19 @@ const validFileContent = (csv_as_json) => {
             && header_lower_case.includes('amount')
             && header_lower_case.includes('daily posted balance')
     )
+}
+
+//  technically array of arrays
+const JSONtoCSV = () => {
+    let data_str = '';
+    for (row_id in csv_as_json){
+        const row = csv_as_json[row_id]
+        for (col_id in row){
+            const data_val = row[col_id];
+            data_str += data_val;
+            data_str += ','
+        }
+        data_str+='\n';
+    }
+    return data_str;
 }
