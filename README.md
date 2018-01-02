@@ -132,17 +132,18 @@ I'm not going to use git issues because it's just me.
 - ~~Read~~/Write CSV file
 - ~~Read/Write JSON file~~
 - ~~Add/Remove table row on button click~~
-- Generate and trigger download of CSV file on button click
-- Enable/Disable button on input change
+- ~~Generate and trigger download of CSV file on button click~~
+- ~Enable/Disable button on input change~~ pretty much worked around this
 - ~~Read input/dropdown value on button click~~
-- String within string lookup (for `Transaction Host`s)
-- JSON to CSV text conversion (probably)
+- ~~String within string lookup (for `Transaction Host`s)~~
+- ~~JSON to CSV text conversion (probably)~~
 - ~~Add selected file to input label~~
 - ~~Hide all Steps >1 until CSV selected in Step 1~~
 - ~~Hide all Steps until previous Steps have been completed once~~
 - ~~Add area in each step for error report~~
 - Add info pop-ups to headers
 - Add Setup section to this README
+- DO THE MATH! calculate catagory totals, report in step 5, and download results
 
 I plan on doing the UI first because it's easier. This includes the dynamic and download bits. Then I'll add functionality. 
 
