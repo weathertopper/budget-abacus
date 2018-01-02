@@ -4,7 +4,7 @@ const express = require('express');
 const body_parser = require('body-parser');
 const path = require('path');
 const fs = require('fs');
-const json_access = require('./server/json-access.js');
+const file_man = require('./server/file-man.js');
 
 // Constants
 const PORT = 3000;
@@ -24,14 +24,14 @@ app.get('/', function(req, res) {
 // All other 'endpoints' used
 app.get('/:json_file_name', function(req, res) {
     const json_file_name = req.params.json_file_name;
-    let json_to_send = json_access.getJSON(json_file_name);
+    let json_to_send = file_man.getJSON(json_file_name);
     res.send(json_to_send);
 });
 
 app.post('/:json_file_name', function(req, res) {
     const json_file_name = req.params.json_file_name;
     const new_json = req.body;
-    json_access.setJSON(json_file_name, new_json);
+    file_man.setJSON(json_file_name, new_json);
     res.send({'done':true});
 });
 

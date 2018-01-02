@@ -103,7 +103,17 @@ const getStep2Input = () => {
 const getStep3Input = () => {
     let updated_hosts = {};
     $('#step-three .table-data-row').each(function() { // `function` for `this`
-        const row_host = $(this).find('.transaction-host').val().toUpperCase();
+        const row_host = $(this).find('.transaction-host').val().toUpperCase().trim();
+        const row_cat = $(this).find('.catagory-dropdown').val();
+        updated_hosts[row_host] = row_cat;
+    })
+    return updated_hosts;
+}
+
+const getStep4Input = () => {
+    let updated_hosts = {};
+    $('#step-four .table-data-row').each(function() { // `function` for `this`
+        const row_host = $(this).find('.host-val').text().trim();
         const row_cat = $(this).find('.catagory-dropdown').val();
         updated_hosts[row_host] = row_cat;
     })

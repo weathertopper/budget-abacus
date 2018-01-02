@@ -20,6 +20,9 @@ const trimJSON = (csv_as_json) => {
         if (row_id == 0){continue;} //  skip header
         csv_as_json[row_id][tt_id] = (csv_as_json[row_id][amount_id].includes('(')) ? '-' : '';
     }
+    //  rename 'Description' to 'Host'
+    const desc_id = csv_as_json[0].indexOf('Description');
+    csv_as_json[0][desc_id] = 'Host'
     //  updating amount 
     for (let row_id in csv_as_json){
         if (row_id == 0){continue;} //  skip header
@@ -64,7 +67,53 @@ const fillDPB = (csv_as_json) => {
     return csv_as_json;
 }
 
-// returns json
-const updateCatagories = (csv_as_json) => {
-    return csv_as_json;
+//  returns nothing, sets global var
+//  sets all catagory values to ''
+const wipeCatagories = () => {
+    const cat_id = csv_as_json[0].indexOf('Catagory');
+    for (let row_id in csv_as_json){
+        if (row_id == 0){continue;} //  skip header
+        csv_as_json[row_id][cat_id] = '';
+    }
+}
+
+//  returns nothing, sets global var
+//  fills in catagory regardless of what's there now  
+const fillCatagories = (host_cat_arr) => {
+    const cat_id = csv_as_json[0].indexOf('Catagory');
+    let these_hosts = Object.keys(host_cat_arr);
+    const all_hosts = justHosts();
+    for (let arr_id in host_cat_arr){
+        const host_to_find = host_cat_arr[arr_id][0];
+        const cat = host_cat_arr[arr_id][1];
+        const found_host_id = all_hosts.findIndex(
+            (full_host) => {
+                return full_host.toUpperCase().includes(host_to_find);
+            }
+        )
+        if (found_host_id > 0){ //  exclude header
+            csv_as_json[found_host_id][cat_id] = cat;
+        }
+    }
+}
+
+//  returns array of string hosts from global var
+const justHosts = () => {
+    let just_hosts = [];
+    const host_id = csv_as_json[0].indexOf('Host');
+    for (let row_id in csv_as_json){
+        // if (row_id == 0){continue;} //  skip header
+        just_hosts.push(csv_as_json[row_id][host_id]);
+    }
+    return just_hosts;
+}
+
+//  assuming object flat
+//  to match csv_as_json 
+const objToArr = (obj) => {
+    let arr = [];
+    for (let key in obj){
+        arr.push([key, obj[key]]);
+    }
+    return arr;
 }
