@@ -35,7 +35,7 @@
     </div>
     <div id='step-two'>
         <div class='page-header'>
-            <h2>Step Two <small>specify budget catagories and expected costs</small></h2>
+            <h2>Step Two <small>specify budget catagories and expected total costs</small></h2>
         </div>
         <div class='table-header-div'>
             <table class='table'>
@@ -133,7 +133,13 @@
             <table class='table table-hover'>
                 <tr class='results-header-row table-header-row'>
                     <th colspan='2'>
-                        date-start to date-end
+                        <span id='start-date'>
+                            date-start
+                        </span> 
+                        through
+                        <span id='end-date'>
+                            date-end
+                        </span> 
                     </th>
                 </tr>
                 <tr class='table-data-row'>
@@ -165,14 +171,6 @@
                         Actual Cost
                     </td>
                     <td id='actual-cost-td'>
-                        dollar-amount-here 
-                    </td>
-                </tr>
-                <tr class='table-data-row'>
-                    <td>
-                        Delta
-                    </td>
-                    <td id='delta-td'>
                         dollar-amount-here 
                     </td>
                 </tr>

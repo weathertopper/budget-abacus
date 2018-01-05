@@ -52,7 +52,3 @@ const step4Run = () => {
     }
     //  already threw errors    
 }
-
-const step4Clear = () => {
-    $( "#step-four .table-data-row" ).remove();
-}

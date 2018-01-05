@@ -5,7 +5,7 @@ $(document).ready(function(){
     }
     $('#csv-input').change(function() { // use `function` for `this`
         const file_name = (this.files[0]['name']) ? this.files[0]['name'] : null;
-        showFileName(file_name);
+        fillTextById('file_name_span', file_name);
         if (validFileName(file_name)){
             hideError('one');
             readCSVFile(this.files[0]);

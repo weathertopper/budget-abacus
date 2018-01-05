@@ -85,11 +85,6 @@ const removeRow = (row_id) => {
     $(`#${row_id}`).remove();
 }
 
-const showFileName = (file_name) => {
-    $('#file_name_span')
-        .text(file_name);
-}
-
 const getStep2Input = () => {
     let updated_catagories = {};
     $('#step-two .table-data-row').each(function() { // `function` for `this`
@@ -118,4 +113,20 @@ const getStep4Input = () => {
         updated_hosts[row_host] = row_cat;
     })
     return updated_hosts;
+}
+
+const step4Clear = () => {
+    $( "#step-four .table-data-row" ).remove();
+}
+
+const step5ClearReview = () => {
+    $( "#step-five .table-data-row td:nth-of-type(2)" ).empty();
+}
+
+const fillTextById = (id, val) => {
+    $(`#${id}`).text(val);
+}
+
+const colorActual = (color) => {
+    $('#actual-cost-td').css('color', color);
 }

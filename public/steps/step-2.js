@@ -46,11 +46,11 @@ const validateStep2Input = (step2Input) => {
             return false;
         }
         const cost_as_int = parseInt(step2Input[catagory]);
-        if (!isNaN(cost_as_int) && cost_as_int >=0 ){
+        if (!isNaN(cost_as_int) /*&& cost_as_int >=0*/ ){
             step2Input[catagory] = cost_as_int;
         }
         else{
-            const error_string = 'Expected Cost ' + step2Input[catagory] + ' is not a number ≥ 0';
+            const error_string = 'Expected Total ' + step2Input[catagory] + ' is not a number ≥ 0';
             showError('two', error_string);
             return false;
         }
