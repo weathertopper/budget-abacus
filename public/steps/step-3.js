@@ -5,11 +5,11 @@ const step3Populate = () => {
     readJSON('transaction-hosts.json').then(
         (hosts) => {
             for (let host in hosts){
-                readJSON('catagories.json').then(
-                    (catagories) => {
-                        const just_catagories = Object.keys(catagories);
+                readJSON('categories.json').then(
+                    (categories) => {
+                        const just_categories = Object.keys(categories);
                         const host_cat = hosts[host];
-                        const options = buildOptions(just_catagories, host_cat);
+                        const options = buildOptions(just_categories, host_cat);
                         const params = {'host_val': host, 'options': options};
                         addRow('three', params);
                     }
@@ -49,7 +49,7 @@ const validateStep3Input = (step3Input) => {
             return false;
         }
         if(step3Input[host]== 'default'){
-            const error_string = 'Select Catagory for Transaction Host ' + host;
+            const error_string = 'Select Category for Transaction Host ' + host;
             showError('three', error_string);
             return false;
         }

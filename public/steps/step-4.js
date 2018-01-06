@@ -5,18 +5,18 @@ const step4Populate = () => {
     if(csv_as_json){    //  must have csv
         readJSON('transaction-hosts.json').then(
             (hosts) => {
-                readJSON('catagories.json').then(
-                    (catagories) => {
-                        wipeHostCatagories();
-                        fillHostCatagories(hosts);    //  turn hosts JSON into multi-d array
+                readJSON('categories.json').then(
+                    (categories) => {
+                        wipeHostCategories();
+                        fillHostCategories(hosts);    //  turn hosts JSON into multi-d array
                         const header_row = csv_as_json[0];
-                        const cat_id = header_row.indexOf('Catagory');
+                        const cat_id = header_row.indexOf('Category');
                         const host_id = header_row.indexOf('Host');
                         const amount_id = header_row.indexOf('Amount');
-                        const options = buildOptions(Object.keys(catagories), '');  //  catagories as strings in options
+                        const options = buildOptions(Object.keys(categories), '');  //  categories as strings in options
                         for (let row_id in csv_as_json){
                             const row = csv_as_json[row_id];
-                            if (row[cat_id] != ''){ //  if catagory not empty
+                            if (row[cat_id] != ''){ //  if category not empty
                                 continue;
                             }
                             const params = {'host_val': row[host_id], 'options': options};
@@ -35,7 +35,7 @@ const step4Populate = () => {
 const validateStep4Input = (step4Input) => {
     for (let host in step4Input){
         if(step4Input[host]== 'default'){
-            const error_string = 'Select Catagory for Transaction Host ' + host;
+            const error_string = 'Select Category for Transaction Host ' + host;
             showError('four', error_string);
             return false;
         }

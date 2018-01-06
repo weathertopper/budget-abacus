@@ -61,9 +61,9 @@ const addRow = (step_num, params) => {
 const buildOptions = (cat_array, host_cat) => {
     let opts_string = '';
     for (let cat_id in cat_array){
-        const catagory = cat_array[cat_id];
-        const selected = (catagory == host_cat) ? 'selected' : '';
-        const params = {'val_id': catagory, 'opt_text': catagory, 'selected': selected}; //def for now
+        const category = cat_array[cat_id];
+        const selected = (category == host_cat) ? 'selected' : '';
+        const params = {'val_id': category, 'opt_text': category, 'selected': selected}; //def for now
         const opt_row = addOption(params);
         opts_string += opt_row;
     }
@@ -72,7 +72,7 @@ const buildOptions = (cat_array, host_cat) => {
 
 //  returns string
 const addOption = (params) => {
-    let opt_template = catagory_option_string.slice(0); //  local copy
+    let opt_template = category_option_string.slice(0); //  local copy
     for (let param in params){
         const param_bookends = '%'+param+'%';  //  add param bookends
         const reg = new RegExp(param_bookends, 'g'); //  global replace
@@ -86,20 +86,20 @@ const removeRow = (row_id) => {
 }
 
 const getStep2Input = () => {
-    let updated_catagories = {};
+    let updated_categories = {};
     $('#step-two .table-data-row').each(function() { // `function` for `this`
-        const row_cat = $(this).find('.catagory').val().toUpperCase();
+        const row_cat = $(this).find('.category').val().toUpperCase();
         const row_cost = $(this).find('.expected-cost').val();
-        updated_catagories[row_cat] = row_cost;
+        updated_categories[row_cat] = row_cost;
     })
-    return updated_catagories;
+    return updated_categories;
 }
 
 const getStep3Input = () => {
     let updated_hosts = {};
     $('#step-three .table-data-row').each(function() { // `function` for `this`
         const row_host = $(this).find('.transaction-host').val().toUpperCase().trim();
-        const row_cat = $(this).find('.catagory-dropdown').val();
+        const row_cat = $(this).find('.category-dropdown').val();
         updated_hosts[row_host] = row_cat;
     })
     return updated_hosts;
@@ -109,7 +109,7 @@ const getStep4Input = () => {
     let updated_hosts = {};
     $('#step-four .table-data-row').each(function() { // `function` for `this`
         const row_host = $(this).find('.host-val').text().trim();
-        const row_cat = $(this).find('.catagory-dropdown').val();
+        const row_cat = $(this).find('.category-dropdown').val();
         updated_hosts[row_host] = row_cat;
     })
     return updated_hosts;

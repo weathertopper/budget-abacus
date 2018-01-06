@@ -1,6 +1,7 @@
 
 const readJSON = (json_file_name) => {
     return new Promise( (resolve, reject) => {
+        console.log('stop here');
         $.get(server_addr + json_file_name, (str) => {
             const json = JSON.parse(str);
             resolve(json);

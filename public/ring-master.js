@@ -21,10 +21,10 @@ $(document).ready(function(){
         step2Update();
     });
     $("#step-three-add-row").click(() => {
-        readJSON('catagories.json').then(
-            (catagories) => {
-                const just_catagories = Object.keys(catagories);
-                const options = buildOptions(just_catagories, '');
+        readJSON('categories.json').then(
+            (categories) => {
+                const just_categories = Object.keys(categories);
+                const options = buildOptions(just_categories, '');
                 const params = {'host_val': '', 'options': options};
                 addRow('three', params);
             }

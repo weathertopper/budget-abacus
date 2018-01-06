@@ -14,7 +14,7 @@ All files should be kept in a single directory. A shortcut should be made for ea
 
 A single dynamic HTML page should suffice. Simply put, the page will be divided up into _Steps_. Each _Step_ is dynamically added once the previous _Steps_ are completed. Altering a previous _Step_ will require updating all subsequent _Steps_. 
 
-Any default values used to populate tables will be saved in JSON format inside of a `defaults.json` file. This file will be updated when `Transaction Hosts` and `Catagory`s are added.
+Any default values used to populate tables will be saved in JSON format inside of a `defaults.json` file. This file will be updated when `Transaction Hosts` and `Category`s are added.
 
 ## Example CSV
 
@@ -45,7 +45,7 @@ Possible Errors:
 
 This is a `div` of finite height that contains a `div` of dynamic height. Inside of the dynamic `div` is a dynamic `table` with the following structure:
 
-| `Catagory` | `Expected Cost` |
+| `Category` | `Expected Cost` |
 |------------|-----------------|
 | < String>   | #.##            |
 
@@ -56,7 +56,7 @@ There is a button for adding new rows to the table and a button for removing exi
 There is an `Update` `button` that updates `defaults.json` with the appropriate `Catalog` and `Expected Cost` values. It is enabled whenever the table is changed. 
 
 Possible Errors: 
- - `Catagory` must be a unique non-empty string
+ - `Category` must be a unique non-empty string
  - `Expected` must be dollar amount > 0
 
 ### Step Three
@@ -65,11 +65,11 @@ Possible Errors:
 
 This is a `div` of finite height that contains a `div` of dynamic height. Inside of the dynamic `div` is a dynamic `table` with the following structure:
 
-| `Transaction Host` | `Catagory` |
+| `Transaction Host` | `Category` |
 |------------|-----------------|
-| < String>   | < Catagory>            |
+| < String>   | < Category>            |
 
-While the value for `Transaction Host` is a `<String>` and the value for `Catagory` is a `<Catagory>`, there are HTML `input` fields for `Transaction Host`s and `dropdown`s for `Catagory`s.
+While the value for `Transaction Host` is a `<String>` and the value for `Category` is a `<Category>`, there are HTML `input` fields for `Transaction Host`s and `dropdown`s for `Category`s.
 
 The table comes pre-populated with values from `defaults.json`.
 
@@ -81,35 +81,35 @@ There is an `Update` `button` that updates `defaults.json` with the appropriate 
 
 
 Possible Errors: 
- - `Catagory` for `Transaction Host` from `defaults.json` might not exist anymore. If this is the case, the `dropdown` in the `Catagory` column will be set to the default `dropdown` value (which is not a legitimate `Catagory` value)
+ - `Category` for `Transaction Host` from `defaults.json` might not exist anymore. If this is the case, the `dropdown` in the `Category` column will be set to the default `dropdown` value (which is not a legitimate `Category` value)
  - `Transaction Host` must be a unique non-empty string
- - `Catagory` must be selected from the dropdown
+ - `Category` must be selected from the dropdown
 
 ### Step Four
 
-**Filter unknown `Transaction Host`s by `Catagory`**
+**Filter unknown `Transaction Host`s by `Category`**
 
 The layout is very simiar to _Step Three_
 
 This is a `div` of finite height that contains a `div` of dynamic height. Inside of the dynamic `div` is a dynamic `table` with the following structure:
 
-| `Transaction Host` | `Catagory` |
+| `Transaction Host` | `Category` |
 |------------|-----------------|
-| < String>   | < Catagory>            |
+| < String>   | < Category>            |
 
-Only unknown `Transaction Host`s from the selected CSV file are in this table. `Transaction Host` is not editable. `Catagory` is still a `dropdown`.
+Only unknown `Transaction Host`s from the selected CSV file are in this table. `Transaction Host` is not editable. `Category` is still a `dropdown`.
 
 **NOTE: To add `Transaction Host`s by default (see `Best Buy` example above), add `Transaction Host` to _Step Three_ and click the `Update` `button`. That will update the table in _Step Three_**
 
 Possible Errors: 
- - `Catagory` must be selected from the dropdown
+ - `Category` must be selected from the dropdown
  - CSV file not selected in Step One
 
 ### Step Five
 
 **Diagnosis and Download**
 
-This gives a basic breakdown of `Expected` costs versus `Actual` costs by `Catagory`. I might expand it later to see where the largest costs come from, but I've got enough to do for now.
+This gives a basic breakdown of `Expected` costs versus `Actual` costs by `Category`. I might expand it later to see where the largest costs come from, but I've got enough to do for now.
 
 There is a div with an immutable table with the following structure: 
 
@@ -121,7 +121,7 @@ There is a div with an immutable table with the following structure:
 | Actual      | #.## |
 | Delta       | #.## |
 
-There is also a `Download` button that triggers the download of a CSV  file. The CSV file download will contain a breakdown of individual costs (by `Transaction Host` and `Catagory`) as well as the `Expected`/`Actual` results. 
+There is also a `Download` button that triggers the download of a CSV  file. The CSV file download will contain a breakdown of individual costs (by `Transaction Host` and `Category`) as well as the `Expected`/`Actual` results. 
 
 That's the bulk of it. 
 
@@ -143,7 +143,7 @@ I'm not going to use git issues because it's just me.
 - ~~Add area in each step for error report~~
 - Add info pop-ups to headers
 - Add Setup section to this README
-- DO THE MATH! calculate catagory totals, report in step 5, and download results
+- DO THE MATH! calculate category totals, report in step 5, and download results
 
 I plan on doing the UI first because it's easier. This includes the dynamic and download bits. Then I'll add functionality. 
 

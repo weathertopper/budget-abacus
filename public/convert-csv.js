@@ -43,10 +43,10 @@ const validFileContent = (csv_as_json) => {
 }
 
 //  technically array of arrays
-const JSONtoCSV = () => {
+const JSONtoCSV = (json) => {
     let data_str = '';
-    for (row_id in csv_as_json){
-        const row = csv_as_json[row_id]
+    for (row_id in json){
+        const row = json[row_id]
         for (col_id in row){
             const data_val = row[col_id];
             data_str += data_val;

@@ -3,7 +3,7 @@
  * - turn transaction type into "+" or "-" (for credit or debit) based on amount
  * - clean amount string
  * - fill in all daily posted balance slots using amount, transaction type, and existing daily bosted balances
- * - add catagory column to every row
+ * - add category column to every row
  * 
  * not efficient, but easy to follow
  */
@@ -31,8 +31,8 @@ const trimJSON = (csv_as_json) => {
         csv_as_json[row_id][amount_id] = csv_as_json[row_id][amount_id].replace(')', '');
         csv_as_json[row_id][amount_id] = csv_as_json[row_id][tt_id] + csv_as_json[row_id][amount_id] // adding transaction type to amount
     }
-    //  turn transaction type into catagory
-    csv_as_json[0][tt_id] = 'Catagory'; //header
+    //  turn transaction type into category
+    csv_as_json[0][tt_id] = 'Category'; //header
     for (let row_id in csv_as_json){
         if (row_id == 0){continue;} //  skip header
         csv_as_json[row_id][tt_id] = '';
@@ -67,9 +67,9 @@ const fillDPB = (csv_as_json) => {
 }
 
 //  returns nothing, sets global var
-//  sets all catagory values to ''
-const wipeHostCatagories = () => {
-    const cat_id = csv_as_json[0].indexOf('Catagory');
+//  sets all category values to ''
+const wipeHostCategories = () => {
+    const cat_id = csv_as_json[0].indexOf('Category');
     for (let row_id in csv_as_json){
         if (row_id == 0){continue;} //  skip header
         csv_as_json[row_id][cat_id] = '';
@@ -77,10 +77,10 @@ const wipeHostCatagories = () => {
 }
 
 //  returns nothing, sets global var
-//  fills in catagory regardless of what's there now  
-const fillHostCatagories = (host_cat_obj) => {
+//  fills in category regardless of what's there now  
+const fillHostCategories = (host_cat_obj) => {
     let host_cat_arr = objToArr(host_cat_obj)
-    const cat_id = csv_as_json[0].indexOf('Catagory');
+    const cat_id = csv_as_json[0].indexOf('Category');
     let these_hosts = Object.keys(host_cat_arr);
     const all_hosts = justHosts();
     for (let arr_id in host_cat_arr){
@@ -150,3 +150,28 @@ const nothingEmpty = () => {
     }
     return true;
 }
+
+const getCostsByCategory = () => {
+    return new Promise( (resolve) => {
+        let costs_by_cat = {};
+        readJSON('categories.json').then(
+            (categories) => {  
+                const cat_arr = Object.keys(categories);
+                for (let cat_id in cat_arr){
+                    const cat = cat_arr[cat_id]
+                    costs_by_cat[cat] = 0;
+                }
+                const amount_id = csv_as_json[0].indexOf('Amount'); //    header
+                const cat_id = csv_as_json[0].indexOf('Category');  //    header
+                for (let row_id in csv_as_json){
+                    if (row_id == 0){continue;} //  skip header
+                    const row = csv_as_json[row_id];
+                    const cat = row[cat_id];
+                    const cost = row[amount_id];    //  string
+                    costs_by_cat[cat] += parseFloat(cost);
+                }
+                resolve(costs_by_cat);
+            }
+        )
+    })
+} 

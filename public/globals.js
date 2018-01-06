@@ -5,13 +5,13 @@ let csv_as_json;    //  fill in w/ step one
 let temp_hosts;     //  fill in w/ step four
 
 //  const to guarantee I make a copy
-const catagory_option_string = `<option value="%val_id%" %selected%>%opt_text%</option>`;
+const category_option_string = `<option value="%val_id%" %selected%>%opt_text%</option>`;
 
 //  organized by step
 const add_row_strings = {
     "two" : `<tr class="table-data-row" id="%id%">
                 <td>
-                    <input type="text" class="catagory" value="%cat_val%">
+                    <input type="text" class="category" value="%cat_val%">
                 </td>
                 <td>
                     <span class = "dollar-sign">$</span>
@@ -31,9 +31,9 @@ const add_row_strings = {
                     <input type="text" class="transaction-host" value="%host_val%">
                 </td>
                 <td>
-                    <select class="catagory-dropdown" >
+                    <select class="category-dropdown" >
                         <!-- populate this dropdown with values from step 2 -->
-                        <option value="default">Select a Catagory</option>
+                        <option value="default">Select a Category</option>
                         %options%
                     </select>
                 </td>
@@ -47,10 +47,10 @@ const add_row_strings = {
                 <td class="host-val">
                     %host_val%
                 </td>
-                <td class="step-four-catagory">
-                    <select class="catagory-dropdown">
+                <td class="step-four-category">
+                    <select class="category-dropdown">
                         <!-- populate this dropdown with values from step 3 -->
-                        <option value="default">Select a Catagory</option>
+                        <option value="default">Select a Category</option>
                         %options%
                     </select>
                 </td>
