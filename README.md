@@ -141,8 +141,8 @@ I'm not going to use git issues because it's just me.
 - ~~Hide all Steps >1 until CSV selected in Step 1~~
 - ~~Hide all Steps until previous Steps have been completed once~~
 - ~~Add area in each step for error report~~
-- Add info pop-ups to headers
-- Add Setup section to this README
+- ~~Add info pop-ups to headers~~ not adding this
+- ~~Add Setup section to this README~~
 - DO THE MATH! calculate category totals, report in step 5, and download results
 
 I plan on doing the UI first because it's easier. This includes the dynamic and download bits. Then I'll add functionality. 
