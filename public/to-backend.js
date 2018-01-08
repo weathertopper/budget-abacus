@@ -1,7 +1,6 @@
 
 const readJSON = (json_file_name) => {
     return new Promise( (resolve, reject) => {
-        console.log('stop here');
         $.get(server_addr + json_file_name, (str) => {
             const json = JSON.parse(str);
             resolve(json);
@@ -19,11 +18,6 @@ const writeJSON = (json_file_name, new_json_object) => {
 
 const writeCSV = (csv_file_name, csv_string) => {
     download(csv_file_name, csv_string)
-    // return new Promise( (resolve, reject) => {
-    //     $.post(server_addr + 'download/' + csv_file_name, csv_string, (data) => {
-    //         resolve();
-    //     })
-    // })
 }
 
 //  taken from https://ourcodeworld.com/articles/read/189/how-to-create-a-file-and-generate-a-download-with-javascript-in-the-browser-without-a-server

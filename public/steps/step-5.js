@@ -75,7 +75,6 @@ const calcExpectedCost = () => {
 const calcActualCost = () => {
     const amount_id = csv_as_json[0].indexOf('Amount'); //    header
     let cost_total = '0';
-    console.log(JSON.stringify(csv_as_json));
     for (let row_id in csv_as_json){
         if (row_id == 0){ continue; }   //  skip header
         const row = csv_as_json[row_id];
@@ -99,11 +98,11 @@ const step5Download = () => {
             const end_balance = getEndBalance();
             const actual_cost = calcActualCost();
             calcExpectedCost().then( (expected_cost) => {
-                const start_balance_row = ["START BALANCE", start_balance];
-                const end_balance_row = ["END BALANCE", end_balance];
-                const expected_cost_row = ["EXPECTED COST", getCostPrefix(expected_cost) + expected_cost];
-                const actual_cost_row = ["ACTUAL COST", getCostPrefix(actual_cost) +actual_cost];
-                const cat_totals_header = ["CATEGORY", "TOTAL"];
+                const start_balance_row = ["Start Balance", start_balance];
+                const end_balance_row = ["End Balance", end_balance];
+                const expected_cost_row = ["Expected Cost", getCostPrefix(expected_cost) + expected_cost];
+                const actual_cost_row = ["Actual Cost", getCostPrefix(actual_cost) +actual_cost];
+                const cat_totals_header = ["Category", "Expected", "Actual"];
                 const break_row = [" "];
 
                 const pre_lim = [ dates,
@@ -114,12 +113,11 @@ const step5Download = () => {
                                     break_row, 
                                     cat_totals_header];
 
-                const full_report = pre_lim.concat(objToArr(cat_totals))
+                const full_report = pre_lim.concat(cat_totals)
                                             .concat(break_row)
                                             .concat(csv_as_json);
 
                 const data_as_str = JSONtoCSV(full_report);
-                console.log("data_as_str" + data_as_str);
                 writeCSV('budget_download', data_as_str);
             });
         })

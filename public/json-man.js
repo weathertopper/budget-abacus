@@ -153,22 +153,31 @@ const nothingEmpty = () => {
 
 const getCostsByCategory = () => {
     return new Promise( (resolve) => {
-        let costs_by_cat = {};
+        let costs_by_cat = [];
         readJSON('categories.json').then(
             (categories) => {  
                 const cat_arr = Object.keys(categories);
+                const expected_arr = Object.values(categories);
                 for (let cat_id in cat_arr){
-                    const cat = cat_arr[cat_id]
-                    costs_by_cat[cat] = 0;
+                    const row = [];
+                    const cat = cat_arr[cat_id];
+                    const val = expected_arr[cat_id];
+                    row.push(cat);
+                    row.push(val);
+                    row.push(0);
+                    costs_by_cat.push(row);
                 }
                 const amount_id = csv_as_json[0].indexOf('Amount'); //    header
                 const cat_id = csv_as_json[0].indexOf('Category');  //    header
                 for (let row_id in csv_as_json){
                     if (row_id == 0){continue;} //  skip header
-                    const row = csv_as_json[row_id];
-                    const cat = row[cat_id];
-                    const cost = row[amount_id];    //  string
-                    costs_by_cat[cat] += parseFloat(cost);
+                    const input_row = csv_as_json[row_id];
+                    const cat = input_row[cat_id];
+                    const cost = parseFloat(input_row[amount_id]);
+                    const costs_row_id = cat_arr.indexOf(cat);
+                    if (costs_row_id >=0 ){
+                        costs_by_cat[costs_row_id][2] += cost;
+                    }                    
                 }
                 resolve(costs_by_cat);
             }

@@ -41,6 +41,8 @@ const addRow = (step_num, params) => {
     }
     //  take all illegal chars out of id
     id = id.replace(/\s/g, "-");
+    id = id.replace(/\(/g, "-");
+    id = id.replace(/\)/g, "-");
     id = id.replace(/'/g, "-");
     id = id.replace(/"/g, "-");
     id = id.replace(/=/g, "-");
