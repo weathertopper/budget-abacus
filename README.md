@@ -132,3 +132,8 @@ It _should_ be pretty straight forward:
  - Transaction Hosts in Step 2 do not need to be the full names of the transaction hosts. Any unique substring will do. 
  - Always `Update` one step before moving on. 
 
+### TO FIX
+ - Be able to remove row from Step 4
+ - Show amounts in Step 4
+ - Angel's computer gets atob error (wth?)
+ - Need to merge CC & Credit statements
